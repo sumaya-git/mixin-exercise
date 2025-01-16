@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import path
+from myitemapp.views import ItemListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('http_restrictor.urls')),
+   # path('', include('http_restrictor.urls')),
+    path('items/', ItemListView.as_view(), name='item_list'),
+    
 ]
 
